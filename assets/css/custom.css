@@ -1,0 +1,54 @@
+body
+{
+	background: transparent;
+	background: rgba(0, 0, 0, 0.05);
+}
+
+
+.navbar-default {
+    background-color: #656161;
+    border-color: #e7e7e7;
+}
+.navbar-default .navbar-nav>li>a {
+    color: white;
+}
+/*a:hover{color:white;}*/
+.navbar-default .navbar-nav>li>a:hover {
+    color: white;
+}
+.head{height: 70px;}
+.bgcolorwhite{background-color: white;padding-bottom: 15px;}
+.bgimage{background-image: url(../images/bgimage.jpeg);height: 460px;padding-top: 365px;
+    color: white; }
+.avathar{padding-left: 15px;}
+.subheding{color: #a59f9f;}
+label{ margin-bottom: 0px; }
+.avatar1{padding-top: 10px;}
+.smallheading{color: #1890c4;}
+.articels{margin-bottom: 25px;}
+.anchorcolor{color: #4e4b4b;}
+.date{padding-left: 70px;}
+.footerbgcolor{background-color: #656161;color: white;padding-top: 15px;}
+.footerheadingcolor{color: #c1c1c1;}
+.custom-bullet li:before
+{
+    /*Using a Bootstrap glyphicon as the bullet point*/
+   content: "";
+    border-color: transparent #FFF;
+    border-style: solid;
+    border-width: 0.35em 0 0.35em 0.45em;
+    display: block;
+    height: 0;
+    width: 0;
+    left: -1em;
+    top: 0.9em;
+    position: relative;
+
+}
+.custom-bullet li{padding-left: 15px;}
+.foote2bgcolor{background-color: rgb(105, 102, 102);padding-top: 10px;}
+.tearmslinks li>a {
+    color: white;
+}
+.ads{height: 450px;}
+.topad{padding-bottom: 10px;}
