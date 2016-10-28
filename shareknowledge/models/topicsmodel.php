@@ -1,5 +1,5 @@
 <?php
-  class TopicModel extends CI_Model{
+  class TopicsModel extends CI_Model{
 
   	public function insertdata($data)
   	{

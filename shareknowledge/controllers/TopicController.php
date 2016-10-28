@@ -4,7 +4,7 @@
 	   	function __construct() 
 	   	{ 
 	   		parent::__construct(); 
-	   		$this->load->model('topicmodel');
+	   		$this->load->model('topicsmodel');
 
 	   		
 	   	}
@@ -19,12 +19,14 @@
 
 	   	public function topiccreate()
 	   	{
+
 	   		$data = array('name' => $this->input->post('name'),'title' => $this->input->post('title'),'email' => $this->input->post('email'),'description' =>$this->input->post('description'),'phoneno' => $this->input->post('phno'),'linkedin' => $this->input->post('linkedin'),'facebook' => $this->input->post('facebook'),'twitter' => $this->input->post('twitter'));
-	   		$data = $this->topicmodel->insertdata($data);
+	   		// print_r($data);
+	   		$data = $this->topicsmodel->insertdata($data);
 	   		if($data)
 	   		{
-	   			echo "insert";
-	   			exit;
+	   			$this->session->set_flashdata('sucess', 'Thank you for shareing your knowledge ');
+	   			redirect('index');
 	   		}
 	   	}
 	}
