@@ -19,9 +19,10 @@
 
     public function validuser($data)
     {
-      $query = $this->db->query("SELECT * FROM users WHERE email = $data['email'] AND password = $data['password']");
-      $resno = $query->num_rows();
-      return $resno;
+      // print_r($data);exit;
+      $query = $this->db->query("SELECT * FROM users WHERE email ='" .$data['email']."' AND password ='" .md5($data['password'])."'");
+      $userdata = $query->result();
+      return $userdata[0];
     }
     
 

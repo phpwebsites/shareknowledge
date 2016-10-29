@@ -26,7 +26,14 @@
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../navbar/"><strong>Subscribe</strong></a></li>
+
+            <?php if($this->session->userdata('id') == ""){ ?>
+
+              <li><a href="<?php echo base_url('login'); ?>"><strong>Login</strong></a></li>
+              <li><a href="<?php echo base_url('signup'); ?>"><strong>Register</strong></a></li>
+            <?php }else{ ?>
+              <li><a href="<?php echo base_url('signup'); ?>"><strong>Logout</strong></a></li>
+            <?php } ?>
             <li><a href="../navbar-static-top/"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
             <li><a href="./"><i class="fa fa-search" aria-hidden="true"></i></a></li>
           </ul>

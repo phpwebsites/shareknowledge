@@ -48,7 +48,20 @@
 	   	public function logincreate()
 	   	{
 	   		$data = array('email' =>$this->input->post('email'),'password' =>$this->input->post('password'));
-	   		$data = $this->usermodel->validuser($data);
+	   		$userdata = $this->usersmodel->validuser($data);
+	   		// print_r($userdata); exit;
+	   		if(empty($data))
+	   		{
+	   			$this->session->set_flashdata('msg','Your email and password is worng');
+	   			redirect('home');
+	   		}
+	   		else
+	   		{
+	   			$sessiondata = array('id'=> $userdata->id,'email' => $userdata->email);
+	   			$this->session->set_userdata($sessiondata);
+	   			$this->session->set_flashdata('msg','Your login is sucessfull.Please share your valueble thinks on site ');
+	   			redirect('home');
+	   		}
 	   	}
 
 

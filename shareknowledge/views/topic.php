@@ -30,6 +30,10 @@
                   
                 </textarea>
               </div>
+              <div class="form-group">
+                <label for="img">Image:</label>
+                <input type="file" class="form-control" id="image" name="image">
+              </div>
                <div class="form-group">
                 <label for="pwd">Linkedin:</label>
                 <input type="text" class="form-control" id="linkedin" name="linkedin">
