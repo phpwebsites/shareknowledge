@@ -21,18 +21,24 @@
           <ul class="nav navbar-nav">
             <li><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="<?php echo base_url('Shareknowldge'); ?>">Share Knowledge</a></li>
+            <li>
+             <?php if($this->session->userdata('userid') == ""){ ?>
+               <a href="javascript:void(0)" onclick="return confirm('Please do the login after share your Knowledge');">Share Knowledge</a>
+             <?php } else{ ?>
+               <a href="<?php echo base_url('Shareknowldge'); ?>">Share Knowledge</a>
+             <?php } ?>
+            </li>
             <li><a href="#contact">Contact</a></li>
             
           </ul>
           <ul class="nav navbar-nav navbar-right">
 
-            <?php if($this->session->userdata('id') == ""){ ?>
+            <?php if($this->session->userdata('userid') == ""){ ?>
 
               <li><a href="<?php echo base_url('login'); ?>"><strong>Login</strong></a></li>
               <li><a href="<?php echo base_url('signup'); ?>"><strong>Register</strong></a></li>
             <?php }else{ ?>
-              <li><a href="<?php echo base_url('signup'); ?>"><strong>Logout</strong></a></li>
+              <li><a href="<?php echo base_url('logout'); ?>"><strong>Logout</strong></a></li>
             <?php } ?>
             <li><a href="../navbar-static-top/"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
             <li><a href="./"><i class="fa fa-search" aria-hidden="true"></i></a></li>

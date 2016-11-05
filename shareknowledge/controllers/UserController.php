@@ -21,7 +21,7 @@
 	   		$data = $this->usersmodel->insertuserdata($data);
 	   		$lastid = $this->db->insert_id();
 	   		$userdata = $this->usersmodel->getuser($lastid);
-	   		$userdata = array('id' => $userdata->id , 'email' => $userdata->email);
+	   		$userdata = array('userid' => $userdata->id , 'email' => $userdata->email);
 	   		$this->session->set_userdata($userdata);
 	   		if($data)
 	   		{
@@ -57,11 +57,19 @@
 	   		}
 	   		else
 	   		{
-	   			$sessiondata = array('id'=> $userdata->id,'email' => $userdata->email);
+	   			$sessiondata = array('userid'=> $userdata->id,'email' => $userdata->email);
 	   			$this->session->set_userdata($sessiondata);
 	   			$this->session->set_flashdata('msg','Your login is sucessfull.Please share your valueble thinks on site ');
 	   			redirect('home');
 	   		}
+	   	}
+
+	   	public function logout()
+	   	{
+	   	  $this->session->sess_destroy();	
+	   	  $this->load->view('includes/header');
+	   	  $this->load->view('index');
+	   	  $this->load->view('includes/footer');
 	   	}
 
 

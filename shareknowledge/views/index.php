@@ -15,79 +15,45 @@
 				<div class="row">
 					<h3 class="col-xs-10 subheding">NEWS AND ARTICLES ABOUT ONLINE EDUCATION</h3>
 				</div>
+			<?php foreach($topic_result as $topicresult){ ?>
 				<div class="row articels">
 					<div class="col-xs-5">
-						<img src="<?php echo base_url(); ?>assets/images/image1.jpeg">
+						<img src="<?php echo base_url(); ?>uploads/<?php echo $topicresult->image; ?>" width="274" height="183">
 					</div>
 					<div class="col-xs-7">
 					    <!-- <label class="smallheading">Lorumipsum</label> -->
-						<h4 class="text-justify"><a href="" class="anchorcolor">The Ecosystem Can't Ignore Edtech for Long, Here's Why!</a></h4>
+						<h4 class="text-justify">
+						  <a href="" class="anchorcolor"><?php echo $topicresult->title; ?></a>
+						</h4>
 						<div class="text-justify">
-						   Contrary to popular belief, Lorem Ipsum is not simply random text.
+						   <?php echo $topicresult->description; ?>
 						</div>
 						<div class="avatar1">
 							<img src="<?php echo base_url(); ?>assets/images/avatar.jpg" class="img-circle" style="width: 25px;">
-						    <span>ramu</span>
-						    <span class="date">SEPTEMBER 28, 2016</span>
+							<span><?php echo $topicresult->name;  ?></span>
+						    <span class="date">
+						      <?php
+						      $date = date_create($topicresult->createdon);
+                              echo strtoupper(date_format($date, 'F jS,  Y'));
+                              ?>
+						      <?php //echo date_format($date,"Y/m/d H:i:s"); ?>
+						    </span>
 						</div>
+						<?php  if($this->session->userdata('userid') != ""){ ?>
+							<?php if($this->session->userdata('userid') == 	$topicresult->userid){ ?>
+						<div class="rdwricons">
+							<a href="<?php echo base_url('edit/'.$topicresult->userid); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							<a href="<?php ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+						</div>
+						    <?php } ?>
+						<?php } ?>
 					</div>
 				</div>
 				<hr>
-				<div class="row articels">
-					<div class="col-xs-5">
-						<img src="<?php echo base_url(); ?>assets/images/image2.jpeg">
-					</div>
-					<div class="col-xs-7">
-					    <!-- <label class="smallheading">Lorumipsum</label> -->
-						<h4 class="text-justify"><a href="" class="anchorcolor">The Ecosystem Can't Ignore Edtech for Long, Here's Why!</a></h4>
-						<div class="text-justify">
-						   Contrary to popular belief, Lorem Ipsum is not simply random text.
-						</div>
-						<div class="avatar1">
-							<img src="<?php echo base_url(); ?>assets/images/avatar.jpg" class="img-circle" style="width: 25px;">
-						    <span>ramu</span>
-						    <span class="date">SEPTEMBER 28, 2016</span>
-						</div>
-					</div>
-				</div>
-				<hr>
-				<div class="row articels">
-					<div class="col-xs-5">
-						<img src="<?php echo base_url(); ?>assets/images/image1.jpeg">
-					</div>
-					<div class="col-xs-7">
-					    <!-- <label class="smallheading">Lorumipsum</label> -->
-						<h4 class="text-justify"><a href="" class="anchorcolor">The Ecosystem Can't Ignore Edtech for Long, Here's Why!</a></h4>
-						<div class="text-justify">
-						   Contrary to popular belief, Lorem Ipsum is not simply random text .
-						</div>
-						<div class="avatar1">
-							<img src="<?php echo base_url(); ?>assets/images/avatar.jpg" class="img-circle" style="width: 25px;">
-						    <span>ramu</span>
-						    <span class="date">SEPTEMBER 28, 2016</span>
-
-						</div>
-					</div>
-				</div>
-				<hr>
-				<div class="row articels">
-					<div class="col-xs-5">
-						<img src="<?php echo base_url(); ?>/assets/images/image2.jpeg">
-					</div>
-					<div class="col-xs-7">
-					    <!-- <label class="smallheading">Lorumipsum</label> -->
-						<h4 class="text-justify"><a href="" class="anchorcolor">The Ecosystem Can't Ignore Edtech for Long, Here's Why!</a> </h4>
-						<div class="text-justify">
-						   Contrary to popular belief, Lorem Ipsum is not simply random text.
-						</div>
-						<div class="avatar1">
-							<img src="<?php echo base_url(); ?>assets/images/avatar.jpg" class="img-circle" style="width: 25px;">
-						    <span>ramu</span>
-						    <span class="date">SEPTEMBER 28, 2016</span>
-						</div>
-					</div>
-				</div>
+			<?php } ?>
 			</div>
+
+				
 			<div class="col-xs-4">
 			  <div class="row text-center ads">
 			  	<img src="<?php echo base_url(); ?>assets/images/ad1.jpg">

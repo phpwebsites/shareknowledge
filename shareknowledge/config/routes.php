@@ -53,9 +53,13 @@ $route['default_controller'] = 'HomeController';
 $route['home'] = 'HomeController/index';
 $route['Shareknowldge'] = "TopicController/topic";
 $route['topiccreate'] = "TopicController/topiccreate";
+$route['edit/:any'] = "TopicController/topicedit";
 $route['signup'] = "UserController/signup";
 $route['usercreate'] = "UserController/create";
 $route['login'] = "UserController/login";
 $route['logincreate'] = "UserController/logincreate";
+
+$route['logout'] = "UserController/logout";
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
