@@ -64,6 +64,27 @@
 	   		}
 	   	}
 
+	   	public function subscribe()
+	   	{
+	   		$email = $this->input->post('email');
+	   		$subject = "Share Knowledge Subscription";
+	   	    $message = "<html>
+                       <body>
+                        <div style='width: 640px;height: 145px;background-color: #d0cfcf;padding: 20px;font-size: 20px;text-align: center;'>
+                           <p>
+                             Your Email Subscription is Sucessfull
+                           </p>
+                        </div>
+                       </body>
+                      </html>
+                      ";
+            //echo $message;exit;
+            $this->_sendEmail($email,$subject,$message);
+            $this->session->set_flashdata('emailsentsucess','Your email subscription sucessfull on our site');
+			redirect('home');	
+
+	   	}
+
 	   	public function logout()
 	   	{
 	   	  $this->session->sess_destroy();	
@@ -71,6 +92,37 @@
 	   	  $this->load->view('index');
 	   	  $this->load->view('includes/footer');
 	   	}
+
+	   	private function _sendEmail($email,$subject,$message)
+      {
+	      $config = array();
+	      $config['useragent'] = "CodeIgniter";
+	      $config['mailpath']  = "/usr/bin/sendmail"; // or "/usr/sbin/sendmail"
+	      $config['protocol']  = "smtp";
+	      $config['smtp_host'] = "ssl://smtp.googlemail.com";
+	      $config['smtp_port'] = "465";
+	      $config['smtp_user'] = 'promtads1414@gmail.com';
+	      $config['smtp_pass'] = 'promtads';
+	      $config['mailtype'] = 'html';
+	      $config['charset']  = 'utf-8';
+	      $config['newline']  = "\r\n";
+	      $config['wordwrap'] = TRUE;
+	      $this->load->library('email');
+	      $this->email->initialize($config);
+	      $this->email->from('promoteads@newbiesoftsolutions.com');
+	      $this->email->to($email);
+	      $this->email->subject($subject);
+	      $this->email->message($message);
+	      if($this->email->send())
+	      {
+	          
+	      }
+	     else
+	     {
+	       show_error($this->email->print_debugger());
+	       
+	     }
+      }
 
 
 	}

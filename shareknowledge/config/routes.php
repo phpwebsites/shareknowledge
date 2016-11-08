@@ -54,10 +54,14 @@ $route['home'] = 'HomeController/index';
 $route['Shareknowldge'] = "TopicController/topic";
 $route['topiccreate'] = "TopicController/topiccreate";
 $route['edit/:any'] = "TopicController/topicedit";
+$route['topicupdate'] = "TopicController/topicupdate";
+$route['topicdel/:any'] = "TopicController/topicdelete";
+$route['shareknowldge/:any'] = "TopicController/showpage";
 $route['signup'] = "UserController/signup";
 $route['usercreate'] = "UserController/create";
 $route['login'] = "UserController/login";
 $route['logincreate'] = "UserController/logincreate";
+$route['subscribe'] = "UserController/subscribe";
 
 $route['logout'] = "UserController/logout";
 

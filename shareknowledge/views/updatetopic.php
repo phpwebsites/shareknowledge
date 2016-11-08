@@ -6,7 +6,7 @@
          <img src="<?php echo base_url(); ?>assets/images/vad1.jpg">
       </div>
       <div class="col-xs-6">
-          <?php echo form_open_multipart('topiccreate'); ?>
+          <?php echo form_open_multipart('topicupdate'); ?>
               <div class="form-group">
                 <label for="email">Name:</label>
                 <input type="text" class="form-control" id="name" name="name" value="<?php echo $topics->name; ?>">
@@ -37,8 +37,9 @@
               </div>
               <div class="form-group">
                 <label for="img">Image:</label>
-                <input type="file" class="form-control" id="image" name="image">
-                <img src="<?php echo base_url(); ?>/uploads/<?php echo $topics->image; ?>" id="updateimage">
+                <input type="file" class="form-control" id="updateimage" name="image">
+                <input type="hidden" name="photo" id="photo" value="<?php echo $topics->image; ?>">
+                <img src="<?php echo base_url(); ?>/uploads/<?php echo $topics->image; ?>" id="image_upload_preview">
                 <?php echo form_error('image'); ?>
               </div>
                <div class="form-group">
@@ -53,7 +54,7 @@
                 <label for="pwd">Twitter:</label>
                 <input type="text" class="form-control" id="twitter" name="twitter" value="<?php echo $topics->twitter; ?>">
               </div>
-              
+              <input type="hidden" name="topicid" id="topicid" value="<?php echo $topics->id;   ?>">
               <button type="submit" class="btn btn-default">Submit</button>
           <?php echo form_close(); ?>
       </div>

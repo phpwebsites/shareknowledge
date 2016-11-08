@@ -13,7 +13,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<h3 class="col-xs-10 subheding">NEWS AND ARTICLES ABOUT ONLINE EDUCATION</h3>
+				<h3 class="col-xs-10 subheding">NEWS AND ARTICLES ABOUT ONLINE EDUCATION</h3>
 				</div>
 			<?php foreach($topic_result as $topicresult){ ?>
 				<div class="row articels">
@@ -26,7 +26,12 @@
 						  <a href="" class="anchorcolor"><?php echo $topicresult->title; ?></a>
 						</h4>
 						<div class="text-justify">
-						   <?php echo $topicresult->description; ?>
+						  
+						   <?php 
+						      echo word_limiter(strip_tags($topicresult->description,19));
+						   ?>
+						   <a href="<?php echo base_url('shareknowldge/'.$topicresult->id); ?>">Readmore </a>
+						  
 						</div>
 						<div class="avatar1">
 							<img src="<?php echo base_url(); ?>assets/images/avatar.jpg" class="img-circle" style="width: 25px;">
@@ -42,8 +47,8 @@
 						<?php  if($this->session->userdata('userid') != ""){ ?>
 							<?php if($this->session->userdata('userid') == 	$topicresult->userid){ ?>
 						<div class="rdwricons">
-							<a href="<?php echo base_url('edit/'.$topicresult->userid); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-							<a href="<?php ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
+							<a href="<?php echo base_url('edit/'.$topicresult->id); ?>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+							<a href="<?php echo base_url('topicdel/'.$topicresult->id); ?>"><i class="fa fa-trash" aria-hidden="true"></i></a>
 						</div>
 						    <?php } ?>
 						<?php } ?>

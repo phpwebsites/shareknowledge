@@ -30,10 +30,10 @@
 		<div class="col-xs-3">
 			<ul class="list-unstyled">
 			    <b class="footerheadingcolor">News Letter</b>
-				<form>
-					<input type="text" name="" class="form-control" placeholder="Email">
-					<input type="submit" name="" value="Subscribe" class="form-control" style="margin-top: 10px;">
-				</form>
+				<?php echo form_open('subscribe'); ?>
+					<input type="text" name="email" id="email" class="form-control" placeholder="Email">
+					<input type="submit" value="Subscribe" class="form-control" style="margin-top: 10px;">
+				<?php echo form_close(); ?>
 			</ul>
 		</div>
 	</div>
@@ -61,7 +61,23 @@
 </footer>
 <script src="//cdn.ckeditor.com/4.5.9/standard/ckeditor.js"></script>
 <script type="text/javascript">
-  CKEDITOR.replace('description');
+	$( document ).ready(function() {
+         function readURL(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function (e) {
+                                $('#image_upload_preview').attr('src', e.target.result);
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        }
+                  }
+                    $("#updateimage").change(function(){
+                    	readURL(this);
+                    })
+
+        CKEDITOR.replace('description');
+
+	});
 </script>
   
 </body>

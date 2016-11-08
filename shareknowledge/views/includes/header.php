@@ -15,7 +15,7 @@
       <div class="container">
         <div class="navbar-header">
 
-          <a class="navbar-brand" href="#" style="color:white;">Logo Name</a>
+          <a class="navbar-brand" href="<?php echo base_url(); ?>" style="color:white;">Logo Name</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
